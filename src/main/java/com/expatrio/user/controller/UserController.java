@@ -21,8 +21,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 @RestController
 @Api(tags = "User Service Controller")
-@RequestMapping(name = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
-
+@RequestMapping("/users")
 public class UserController {
 
     private UserService userService;
