@@ -22,9 +22,8 @@ public class UserServiceImpl implements UserService {
     private final PasswordEncoder passwordEncoder;
 
     public void deleteUserById(Long userId) {
-
-
-        userRepository.deleteById(userId);
+        User user = userRepository.findById(userId).orElseThrow(() -> new UserException(UserError.USER_NOT_FOUND));
+        userRepository.delete(user);
     }
 
     public User createUser(UserInput createUserInput) {

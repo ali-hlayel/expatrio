@@ -1,6 +1,5 @@
 package com.expatrio.user.controller;
 
-import com.expatrio.user.config.JwtTokenProvider;
 import com.expatrio.user.domain.User;
 import com.expatrio.user.dto.UserDto;
 import com.expatrio.user.dto.UserToUserDto;
@@ -10,12 +9,9 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -24,8 +20,9 @@ import java.util.stream.Collectors;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping("/users")
 @Api(tags = "User Service Controller")
+@RequestMapping(name = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
+
 public class UserController {
 
     private UserService userService;
